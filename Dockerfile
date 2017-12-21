@@ -11,10 +11,7 @@ RUN apt-get update && \
       php5-ldap \
       php5-mysql \
       php5-pgsql \
-      php5-curl \
-      php5-mcrypt \
-      php5-imagick \
-      php5-json
+      php5-curl
 
 #enable modrewrite
 RUN a2enmod rewrite
