@@ -11,7 +11,10 @@ RUN apt-get update && \
       php5-ldap \
       php5-mysql \
       php5-pgsql \
-      php5-curl
+      php5-curl \
+      php5-mcrypt \
+      php5-imagick \
+      php5-json
 
 #enable modrewrite
 RUN a2enmod rewrite
@@ -19,10 +22,6 @@ RUN a2enmod rewrite
 #setup apache virtualhost
 RUN rm -r /etc/apache2/sites-available/*
 COPY apache_default /etc/apache2/sites-available/default
-
-#setup php.ini
-COPY php.ini /etc/php5/apache2/php.ini
-COPY php.ini /etc/php5/cli/php.ini
 
 #setup file rights
 RUN usermod -u 1000 www-data && groupmod -g 1000 www-data
